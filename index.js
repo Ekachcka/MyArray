@@ -32,5 +32,15 @@ class MyArray {
     }
     return arr;
   }
+  shift() {
+    let item =this[0];
+    delete this[0];
+    for (let i =1 ; i < this.length; i++) {
+      this[i-1]=this[i];
+    }
+    this.length--;
+    delete this[this.length];
+    return item;
+  }
 }
 const arr = new MyArray(1, 2, 3, 4);
