@@ -13,5 +13,11 @@ class MyArray{
         this.length=this.length+item.length;
         return this;
     }
+    pop(){
+        let item=this[--this.length];
+        delete this[this.length];
+        
+        return item;
+    }
 }
 const arr = new MyArray(1,2,3,4);
