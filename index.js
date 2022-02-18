@@ -10,7 +10,7 @@ class MyArray {
     for (let i = this.length, j = 0; j < item.length; i++) {
       this[i] = item[j++];
     }
-    this.length = this.length + item.length;
+    this.length += item.length;
     return this;
   }
   pop() {
@@ -33,14 +33,25 @@ class MyArray {
     return arr;
   }
   shift() {
-    let item =this[0];
+    let item = this[0];
     delete this[0];
-    for (let i =1 ; i < this.length; i++) {
-      this[i-1]=this[i];
+    for (let i = 0; i < this.length; i++) {
+      this[i] = this[i + 1];
     }
     this.length--;
     delete this[this.length];
     return item;
   }
+  unshift(...item) {
+    for (let i = this.length - 1; i >= 0; i--) {
+      this[i + item.length] = this[i];
+    }
+    for (let i = 0; i < item.length; i++) {
+      this[i] = item[i];
+    }
+    this.length += item.length;
+    return this.length;
+  }
 }
 const arr = new MyArray(1, 2, 3, 4);
+const arr2 = [1, 2, 3, 4];
