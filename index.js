@@ -19,5 +19,13 @@ class MyArray{
         
         return item;
     }
+
+    map(fun){
+        const arr = new MyArray();
+        for (let i = 0; i < this.length; i++) {
+            arr.push(fun(this[i]));
+        }
+        return arr;
+    }
 }
 const arr = new MyArray(1,2,3,4);
