@@ -53,13 +53,15 @@ class MyArray {
     return this.length;
   }
   reverse() {
-    const arr = this;
     let n = 0;
-    for (let i = 0; i < this.length; i++) {
-      n = arr[this.length - i - 1];
-      this[i] = n;
+    for (let i = 0; i < this.length/2; i++) {
+      n = this[i];
+      this[i]=this[this.length-i-1];
+      this[this.length-i-1]=n;
     }
+    return this;
   }
+  
 }
-const arrey = new MyArray("a", "b", "c", "d");
-const arr2 = [1, 2, 3, 4];
+const arrey = new MyArray("a", "b", "c", "d","e");
+const arr = [1, 2, 3, 4];
