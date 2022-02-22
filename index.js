@@ -54,14 +54,29 @@ class MyArray {
   }
   reverse() {
     let n = 0;
-    for (let i = 0; i < this.length/2; i++) {
+    for (let i = 0; i < this.length / 2; i++) {
       n = this[i];
-      this[i]=this[this.length-i-1];
-      this[this.length-i-1]=n;
+      this[i] = this[this.length - i - 1];
+      this[this.length - i - 1] = n;
     }
     return this;
   }
-  
+  concat(...item) {
+    const arr = new MyArray();
+    for (let i = 0; i < this.length; i++) {
+      arr.push(this[i]);
+    }
+    for (let i = 0; i < item.length; i++) {
+      if (item[i] instanceof MyArray) {
+        for (let j = 0; j < item[i].length; j++) {
+          arr.push(item[i][j]);
+        }
+      } else {
+        arr.push(item[i]);
+      }
+    }
+    return arr;
+  }
 }
-const arrey = new MyArray("a", "b", "c", "d","e");
+const arrey = new MyArray("a", "b", "c", "d", "e");
 const arr = [1, 2, 3, 4];
